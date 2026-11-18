@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+
+  --color-navy: #083652;
+  --color-navy-deep: #052538;
+  --color-navy-muted: #0D4B70;
+  --color-ocean: #165A7D;
+  --color-ocean-light: #1F749E;
+  --color-brand-green: #6AAA00;
+  --color-brand-green-dark: #4A7800;
+  --color-brand-green-soft: #EEF6E0;
+  --color-surface: #F5F8F7;
+  --color-ink: #0B1F2E;
+  --color-ink-muted: #4A6070;
+  --color-border-subtle: #DCE5E8;
+
+  --radius-card: 24px;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #0b1f2e;
+  --primary: #083652;
+  --primary-foreground: #ffffff;
+  --secondary: #165a7d;
+  --secondary-foreground: #ffffff;
+  --accent: #6aaa00;
+  --accent-foreground: #083652;
+  --muted: #f5f8f7;
+  --muted-foreground: #4a6070;
+  --border: #dce5e8;
+}
+
+@layer base {
+  html,
+  body {
+    overflow-x: clip;
+    font-size: 16px;
+    scroll-behavior: smooth;
+    font-family: var(--font-sans);
+    color: var(--color-ink);
+    background-color: var(--background);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    text-wrap: balance;
+  }
+
+  *:focus-visible {
+    outline: 2px solid var(--color-brand-green);
+    outline-offset: 2px;
+  }
+}
+
+/* Subtle halftone dot-pattern texture matching brochure visual language */
+.bg-halftone-dark {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.09) 1.25px, transparent 1.25px);
+  background-size: 20px 20px;
+}
+
+.bg-halftone-light {
+  background-image: radial-gradient(rgba(8, 54, 82, 0.08) 1.25px, transparent 1.25px);
+  background-size: 20px 20px;
+}
+
+.bg-halftone-green {
+  background-image: radial-gradient(rgba(106, 170, 0, 0.22) 1.5px, transparent 1.5px);
+  background-size: 16px 16px;
+}
+
+/* Hide scrollbars on mobile horizontal snap carousels while keeping swipe active */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
